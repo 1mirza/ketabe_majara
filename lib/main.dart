@@ -117,7 +117,7 @@ final List<Emotion> emotions = [
       name: 'خشم',
       description:
           'وقتی حس می‌کنیم حق ما خورده شده یا چیزی برخلاف میل ماست. مهم است که خشم خود را درست نشان دهیم.',
-      icon: Icons.sentiment_very_dissatisfied,
+      icon: Icons.sentiment_dissatisfied_rounded,
       color: Colors.red),
   const Emotion(
       name: 'ترس',
@@ -135,7 +135,7 @@ final List<Emotion> emotions = [
 
 final List<Story> stories = [
   // داستان ۱: خوراکی گمشده
-  const Story(
+  Story(
       id: "snackStory",
       title: "ماجرای خوراکی گمشده",
       description: "یک داستان درباره سوءتفاهم و شجاعت صحبت کردن.",
@@ -161,8 +161,8 @@ final List<Story> stories = [
                 "...اما خوراکی سر جایش نیست! ناگهان چشمت به سامان می‌افتد که در گوشه حیاط، دقیقاً همان خوراکی را می‌خورد.",
             choices: [
               Choice(text: "با عصبانیت داد می‌زنم: 'دزد!'", nextPage: 2),
+              Choice(text: "با آرامش به سمتش می‌روم.", nextPage: 4),
               Choice(text: "ناراحت می‌شوم و یک گوشه می‌نشینم.", nextPage: 3),
-              Choice(text: "با آرامش به سمتش می‌روم.", nextPage: 4)
             ]),
         const StoryPage(
             image: "",
@@ -202,7 +202,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۲: راز نقاشی خط‌خطی
-  const Story(
+  Story(
     id: "scribbledDrawing",
     title: "راز نقاشی خط‌خطی",
     description: "وقتی کسی به وسایل ما آسیب می‌زند چه کار کنیم؟",
@@ -227,10 +227,10 @@ final List<Story> stories = [
               "...وقتی برمی‌گردی، می‌بینی رضا بالای سر نقاشی تو ایستاده و یک خط بزرگ روی آن کشیده است!",
           choices: [
             Choice(text: "من هم نقاشی او را خط می‌زنم!", nextPage: 2),
-            Choice(text: "بغض می‌کنم و به معلم چیزی نمی‌گویم.", nextPage: 3),
             Choice(
                 text: "با ناراحتی می‌پرسم: 'چرا این کار رو کردی؟'",
                 nextPage: 4),
+            Choice(text: "بغض می‌کنم و به معلم چیزی نمی‌گویم.", nextPage: 3),
           ]),
       const StoryPage(
           image: "",
@@ -267,7 +267,7 @@ final List<Story> stories = [
     ],
   ),
   // داستان ۳: گروه گل کوچیک
-  const Story(
+  Story(
       id: "soccerGame",
       title: "گروه گل کوچیک",
       description: "داستانی درباره طرد شدن و پیدا کردن راه‌های جدید برای شادی.",
@@ -292,10 +292,10 @@ final List<Story> stories = [
                 "جلو می‌روی و می‌پرسی: 'میشه منم بازی کنم؟' یکی از بچه‌ها می‌گوید: 'نه، تیم ما کامله!'",
             choices: [
               Choice(text: "با توپ می‌پرم وسط بازیشون!", nextPage: 2),
-              Choice(text: "کنار می‌ایستم تا بازیشان تمام شود.", nextPage: 3),
               Choice(
                   text: "یک توپ دیگر برمی‌دارم و خودم تمرین می‌کنم.",
-                  nextPage: 4)
+                  nextPage: 4),
+              Choice(text: "کنار می‌ایستم تا بازیشان تمام شود.", nextPage: 3),
             ]),
         const StoryPage(
             image: "",
@@ -331,7 +331,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۴: پیامک عجیب
-  const Story(
+  Story(
       id: "cyberBullying",
       title: "پیامک عجیب",
       description: "چطور در دنیای مجازی از خودمان و دوستانمان مراقبت کنیم؟",
@@ -390,7 +390,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۵: فشار دوستان
-  const Story(
+  Story(
       id: "peerPressure",
       title: "فشار دوستان",
       description: "چطور به چیزی که دوست نداریم 'نه' بگوییم؟",
@@ -446,7 +446,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۶: تعارف لواشک
-  const Story(
+  Story(
       id: "politeDecline",
       title: "تعارف لواشک",
       description: "چطور مودبانه چیزی را رد کنیم؟",
@@ -484,7 +484,7 @@ final List<Story> stories = [
         const StoryPage(
             image: "",
             text:
-                "لواشک را می‌خوری اما از ترشی آن صورتت در هم می‌رود. نه تو لذت بردی و نه ندا خوشحال شد.",
+                "لواشک را می‌خوری اما از ترشی آن صورتت در هم می‌رود. نه تو لذت بردی و نه ندا خوشhal شد.",
             choices: [
               Choice(
                   text: "پایان داستان",
@@ -504,7 +504,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۷: وقتی همه خندیدند
-  const Story(
+  Story(
       id: "laughingClass",
       title: "وقتی همه خندیدند",
       description: "داستانی درباره زمین خوردن و دوباره بلند شدن.",
@@ -559,7 +559,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۸: یک دوست جدید
-  const Story(
+  Story(
       id: "newFriend",
       title: "یک دوست جدید",
       description: "چطور می‌توانیم باعث شویم دیگران احساس تنهایی نکنند؟",
@@ -617,7 +617,7 @@ final List<Story> stories = [
             ]),
       ]),
   // داستان ۹: شایعه در حیاط
-  const Story(
+  Story(
       id: "rumor",
       title: "شایعه در حیاط",
       description: "وقتی یک حرف دروغ درباره دوستمان می‌شنویم.",
@@ -805,7 +805,7 @@ final List<Story> stories = [
         const StoryPage(
             image: "",
             text:
-                "داری با دوستت منچ بازی می‌کни. در حرکت آخر، تاس می‌اندازی و می‌بری!",
+                "داری با دوستت منچ بازی می‌کنی. در حرکت آخر، تاس می‌اندازی و می‌بری!",
             choices: [
               Choice(text: "فریاد می‌زنم: 'بردم! تو باختی!'", nextPage: 1),
               Choice(text: "بازی خوبی بود! دست می‌دهم.", nextPage: 2),
@@ -897,7 +897,7 @@ final List<Story> stories = [
         const StoryPage(
             image: "",
             text:
-                "نیما می‌گوید: 'معلومه که دعوتت کردم! شاید کارتت تو کیفت گم شده.' کیفت را می‌گردی و کارت را پیدا می‌کni!",
+                "نیما می‌گوید: 'معلومه که دعوتت کردم! شاید کارتت تو کیفت گم شده.' کیفت را می‌گردی و کارت را پیدا می‌کنی!",
             choices: [
               Choice(
                   text: "پایان داستان",
@@ -1867,6 +1867,245 @@ final List<Story> stories = [
                   isSuccess: true)
             ]),
       ]),
+  // داستان ۳۱: اسباب‌بازی مشترک
+  Story(
+      id: "sharingToys",
+      title: "اسباب‌بازی مشترک",
+      description: "داستانی درباره نوبت گرفتن و به اشتراک گذاشتن.",
+      icon: Icons.toys,
+      gradientColors: [const Color(0xFF43e97b), const Color(0xFF38f9d7)],
+      requiredStars: 16,
+      achievements: {
+        "SNATCHING":
+            "یاد گرفتم که قاپیدن وسایل، کار درستی نیست و دعوا راه می‌اندازد.",
+        "IGNORING": "فهمیدم که بی‌توجهی به خواسته دیگران، خودخواهانه است.",
+        "TAKING_TURNS":
+            "آفرین! نوبت گرفتن بهترین راه برای بازی عادلانه و دوستانه است."
+      },
+      pages: [
+        const StoryPage(
+            image: "",
+            text:
+                "در پارک هستی و با یک تاب جدید و هیجان‌انگیز بازی می‌کنی. دوستت هم می‌خواهد سوار شود.",
+            choices: [
+              Choice(
+                  text: "می‌گویم: 'اول من آمدم!' و به بازی ادامه می‌دهم.",
+                  nextPage: 2),
+              Choice(
+                  text: "بعد از چند دقیقه، نوبتم را به او می‌دهم.",
+                  nextPage: 3),
+              Choice(text: "او سعی می‌کند تو را کنار بزند.", nextPage: 1),
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "دعوای شما بالا می‌گیرد و ممکن است یکی از شما آسیب ببیند. دیگر بازی کردن لذتی ندارد.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "SNATCHING")
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "دوستت ناراحت می‌شود و تو هم از اینکه او را نادیده گرفته‌ای، احساس خوبی نداری.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "IGNORING")
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "دوستت از تو تشکر می‌کند و شما به نوبت بازی می‌کنید. بازی کردن با هم خیلی بیشتر خوش می‌گذرد!",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "TAKING_TURNS",
+                  isSuccess: true)
+            ]),
+      ]),
+  // داستان ۳۲: صبر و حوصله
+  Story(
+      id: "waitingPatiently",
+      title: "صبر و حوصله",
+      description: "چرا گاهی وقت‌ها باید صبور باشیم؟",
+      icon: Icons.hourglass_empty,
+      gradientColors: [const Color(0xFF6a11cb), const Color(0xFF2575fc)],
+      requiredStars: 17,
+      achievements: {
+        "IMPATIENCE":
+            "یاد گرفتم که بی‌صبری کردن، چیزی را سریع‌تر نمی‌کند و فقط دیگران را ناراحت می‌کند.",
+        "GIVING_UP": "فهمیدم که تسلیم شدن باعث می‌شود فرصت‌ها را از دست بدهم.",
+        "PATIENCE":
+            "آفرین! صبر کردن یک مهارت ارزشمند است که به ما کمک می‌کند به هدفمان برسیم."
+      },
+      pages: [
+        const StoryPage(
+            image: "",
+            text:
+                "در صف آبخوری مدرسه ایستاده‌ای و خیلی تشنه هستی. صف خیلی کند حرکت می‌کند.",
+            choices: [
+              Choice(text: "با بی‌حوصلگی غر می‌زنم.", nextPage: 1),
+              Choice(text: "از صف بیرون می‌آیم.", nextPage: 2),
+              Choice(text: "با آرامش منتظر می‌مانم.", nextPage: 3),
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "بچه‌های دیگر از غر زدن تو ناراحت می‌شوند و صف هم سریع‌تر حرکت نمی‌کند.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "IMPATIENCE")
+            ]),
+        const StoryPage(
+            image: "",
+            text: "تو تشنه به کلاس برمی‌گردی و فرصت آب خوردن را از دست می‌دهی.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "GIVING_UP")
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "بالاخره نوبت تو می‌شود و از آب خنک لذت می‌بری. تو یاد گرفتی که صبور باشی.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "PATIENCE",
+                  isSuccess: true)
+            ]),
+      ]),
+  // داستان ۳۳: بخشش دوست
+  Story(
+      id: "forgivingFriend",
+      title: "بخشش دوست",
+      description: "وقتی دوستی از ما عذرخواهی می‌کند.",
+      icon: Icons.favorite_border,
+      gradientColors: [const Color(0xFFf857a6), const Color(0xFFff5858)],
+      requiredStars: 18,
+      achievements: {
+        "HOLD_GRUDGE": "فهمیدم که کینه نگه داشتن، فقط خودم را اذیت می‌کند.",
+        "IGNORE_APOLOGY": "یاد گرفتم که نادیده گرفتن عذرخواهی، بی‌احترامی است.",
+        "FORGIVENESS":
+            "آفرین! بخشیدن دیگران نشانه قدرت است و دوستی‌ها را حفظ می‌کند."
+      },
+      pages: [
+        const StoryPage(
+            image: "",
+            text:
+                "دوستت که دیروز تو را ناراحت کرده بود، امروز پیش تو می‌آید و صادقانه عذرخواهی می‌کند.",
+            choices: [
+              Choice(text: "می‌گویم: 'دیگر با من حرف نزن!'", nextPage: 1),
+              Choice(text: "چیزی نمی‌گویم و رویم را برمی‌گردانم.", nextPage: 2),
+              Choice(text: "می‌گویم: 'اشکالی ندارد، می‌بخشمت.'", nextPage: 3),
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "تو فرصت آشتی کردن را از دست می‌دهی و ممکن است یک دوست خوب را برای همیشه از دست بدهی.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "HOLD_GRUDGE")
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "دوستت فکر می‌کند هنوز از دستش عصبانی هستی و دیگر برای آشتی تلاش نمی‌کند.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "IGNORE_APOLOGY")
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "دوستت از بخشش تو خوشحال می‌شود و شما دوباره با هم بازی می‌کنید. دوستی شما قوی‌تر از قبل شد.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "FORGIVENESS",
+                  isSuccess: true)
+            ]),
+      ]),
+  // داستان ۳۴: خبرچینی یا گزارش
+  Story(
+      id: "tattlingVsReporting",
+      title: "خبرچینی یا گزارش؟",
+      description: "تفاوت بین گزارش یک خطر و خبرچینی چیست؟",
+      icon: Icons.report_problem,
+      gradientColors: [const Color(0xFFFDC830), const Color(0xFFF37335)],
+      requiredStars: 19,
+      achievements: {
+        "TATTLING": "یاد گرفتم که خبرچینی برای مسائل کوچک، کار درستی نیست.",
+        "DO_NOTHING": "فهمیدم که در برابر خطر نباید سکوت کنم.",
+        "REPORTING":
+            "آفرین! گزارش دادن یک خطر برای کمک به دیگران، کار مسئولانه‌ای است."
+      },
+      pages: [
+        const StoryPage(
+            image: "",
+            text: "می‌بینی که یکی از بچه‌ها دارد روی دیوار کلاس نقاشی می‌کشد.",
+            choices: [
+              Choice(text: "سریع به معلم می‌گویم.", nextPage: 1),
+              Choice(
+                  text:
+                      "می‌بینم که دو نفر از بچه‌های بزرگتر، یکی از بچه‌های کوچک را هل می‌دهند.",
+                  nextPage: 2),
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "معلم از تو می‌پرسد که آیا اول به خود آن دانش‌آموز تذکر داده‌ای؟ این بیشتر شبیه خبرچینی بود.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "TATTLING")
+            ]),
+        const StoryPage(
+            image: "",
+            text: "این یک موقعیت خطرناک است و ممکن است آن کودک آسیب ببیند.",
+            choices: [
+              Choice(text: "کاری به آنها ندارم.", nextPage: 3),
+              Choice(
+                  text: "سریع به نزدیک‌ترین معلم یا ناظم خبر می‌دهم.",
+                  nextPage: 4),
+            ]),
+        const StoryPage(
+            image: "",
+            text: "سکوت تو ممکن است باعث آسیب دیدن آن کودک شود.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "DO_NOTHING")
+            ]),
+        const StoryPage(
+            image: "",
+            text:
+                "معلم فورا مداخله می‌کند و از آن کودک محافظت می‌کند. تو با گزارش به موقع، کار بسیار درستی انجام دادی.",
+            choices: [
+              Choice(
+                  text: "پایان داستان",
+                  nextPage: -1,
+                  achievementKey: "REPORTING",
+                  isSuccess: true)
+            ]),
+      ]),
+  //... بقیه داستان‌ها تا ۵۰
 ];
 
 // --- ویجت اصلی اپلیکیشن ---
@@ -2599,7 +2838,7 @@ class BookCover extends StatelessWidget {
 }
 
 // --- صفحه ۲: صفحه داستان ---
-class StoryScreen extends StatelessWidget {
+class StoryScreen extends StatefulWidget {
   final Story story;
   final int pageIndex;
   final Function(Choice) onChoice;
@@ -2614,8 +2853,36 @@ class StoryScreen extends StatelessWidget {
   });
 
   @override
+  State<StoryScreen> createState() => _StoryScreenState();
+}
+
+class _StoryScreenState extends State<StoryScreen> {
+  late List<Choice> _shuffledChoices;
+
+  @override
+  void initState() {
+    super.initState();
+    _shuffleChoices();
+  }
+
+  @override
+  void didUpdateWidget(covariant StoryScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.pageIndex != widget.pageIndex) {
+      _shuffleChoices();
+    }
+  }
+
+  void _shuffleChoices() {
+    setState(() {
+      _shuffledChoices = List.from(widget.story.pages[widget.pageIndex].choices)
+        ..shuffle();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final page = story.pages[pageIndex];
+    final page = widget.story.pages[widget.pageIndex];
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -2630,7 +2897,7 @@ class StoryScreen extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new_rounded,
                         color: Colors.black54),
-                    onPressed: onBack,
+                    onPressed: widget.onBack,
                   ),
                 ],
               ),
@@ -2639,7 +2906,7 @@ class StoryScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: story.gradientColors,
+                      colors: widget.story.gradientColors,
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -2651,7 +2918,7 @@ class StoryScreen extends StatelessWidget {
                           offset: Offset(0, 4))
                     ]),
                 child: Text(
-                  story.title,
+                  widget.story.title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       fontSize: 24,
@@ -2671,11 +2938,11 @@ class StoryScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              ...page.choices.map((choice) {
+              ..._shuffledChoices.map((choice) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ElevatedButton(
-                    onPressed: () => onChoice(choice),
+                    onPressed: () => widget.onChoice(choice),
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
                             const Color(0xFFFFFFFF).withOpacity(0.8),

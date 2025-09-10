@@ -45,14 +45,15 @@ jobs:
       # Step 7: Uploads the generated APK file as an artifact.
       # You will be able to download this file from the workflow run's page.
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # <-- تغییر از v3 به v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
       # Step 8: Uploads the generated App Bundle file as an artifact.
       - name: Upload App Bundle
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # <-- تغییر از v3 به v4
         with:
           name: release-appbundle
           path: build/app/outputs/bundle/release/app.aab
+

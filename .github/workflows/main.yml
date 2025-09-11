@@ -33,27 +33,41 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      # Step 5: Builds the Android APK file in release mode.
+      # Step 5: Decode the keystore file from the GitHub Secret.
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.KEY_JKS_BASE64 }}" | base64 --decode > android/app/my-release-key.jks
+      
+      # Step 6: Create the key.properties file from the GitHub Secret.
+      - name: Create key.properties file
+        run: |
+          echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      # >>>>> مرحله جدید و بسیار مهم برای عیب‌یابی <<<<<
+      # Step 7: Verify that the files were created in the correct locations.
+      - name: Verify files created
+        run: ls -R android
+      # >>>>> پایان مرحله جدید <<<<<
+
+      # Step 8: Builds the Android APK file in release mode.
       - name: Build APK
         run: flutter build apk --release
 
-      # Step 6: Builds the Android App Bundle file in release mode.
+      # Step 9: Builds the Android App Bundle file in release mode.
       - name: Build App Bundle
         run: flutter build appbundle --release
       
-      # Step 7: Uploads the generated APK file as an artifact.
-      # You will be able to download this file from the workflow run's page.
+      # Step 10: Uploads the generated APK file as an artifact.
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
-      # Step 8: Uploads the generated App Bundle file as an artifact.
+      # Step 11: Uploads the generated App Bundle file as an artifact.
       - name: Upload App Bundle
         uses: actions/upload-artifact@v4
         with:
           name: release-appbundle
-          # از نام دقیق فایل خروجی استفاده می‌کنیم
-          path: build/app/outputs/bundle/release/app-release.aab # <-- تغییر نهایی اینجاست
+          path: build/app/outputs/bundle/release/app-release.aab
 

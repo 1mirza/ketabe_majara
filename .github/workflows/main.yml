@@ -44,9 +44,9 @@ jobs:
           echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
 
       # >>>>> مرحله جدید و بسیار مهم برای عیب‌یابی <<<<<
-      # Step 7: Verify that the files were created in the correct locations.
-      - name: Verify files created
-        run: ls -R android
+      # Step 7: Display the content of the created key.properties file for verification.
+      - name: Display content of key.properties for debugging
+        run: cat android/key.properties
       # >>>>> پایان مرحله جدید <<<<<
 
       # Step 8: Builds the Android APK file in release mode.

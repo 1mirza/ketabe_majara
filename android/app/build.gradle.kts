@@ -5,14 +5,14 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// >>>>> شروع کدهای اضافه شده - بخش اول <<<<<
+// >>>>> شروع کدهای اضافه شده - بخش اول (نسخه کاتلین) <<<<<
 // این بخش فایل key.properties را می‌خواند تا به رمزها دسترسی داشته باشد
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
+val keystoreProperties = java.util.Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    keystoreProperties.load(java.io.FileInputStream(keystorePropertiesFile))
 }
-// >>>>> پایان کدهای اضافه شده - بخش اول <<<<<
+// >>>>> پایان کدهای اضافه شده - بخش اول (نسخه کاتلین) <<<<<
 
 android {
     namespace = "com.example.flutter_application_1"
@@ -28,19 +28,19 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
-    // >>>>> شروع کدهای اضافه شده - بخش دوم <<<<<
+    // >>>>> شروع کدهای اضافه شده - بخش دوم (نسخه کاتلین) <<<<<
     // این بخش، تنظیمات کلید امضای شما را تعریف می‌کند
     signingConfigs {
-        release {
+        create("release") {
             if (keystorePropertiesFile.exists()) {
-                storeFile file(keystoreProperties['storeFile'])
-                storePassword keystoreProperties['storePassword']
-                keyAlias keystoreProperties['keyAlias']
-                keyPassword keystoreProperties['keyPassword']
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
             }
         }
     }
-    // >>>>> پایان کدهای اضافه شده - بخش دوم <<<<<
+    // >>>>> پایان کدهای اضافه شده - بخش دوم (نسخه کاتلین) <<<<<
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -54,7 +54,7 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             // TODO: Add your own signing config for the release build.
             // >>>>> این خط تغییر کرده است <<<<<
             // به جای استفاده از کلید دیباگ، از کلید رسمی که ساختیم استفاده می‌کنیم
@@ -66,6 +66,4 @@ android {
 flutter {
     source = "../.."
 }
-
-
 

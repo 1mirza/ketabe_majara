@@ -1,3 +1,9 @@
+// >>>>> شروع کدهای اضافه شده - بخش اول (نسخه کاتلین - نهایی) <<<<<
+// این دو خط برای حل خطا اضافه شده‌اند
+import java.util.Properties
+import java.io.FileInputStream
+// >>>>> پایان کدهای اضافه شده - بخش اول (نسخه کاتلین - نهایی) <<<<<
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -5,14 +11,14 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// >>>>> شروع کدهای اضافه شده - بخش اول (نسخه کاتلین) <<<<<
+// >>>>> شروع کدهای اضافه شده - بخش دوم (نسخه کاتلین) <<<<<
 // این بخش فایل key.properties را می‌خواند تا به رمزها دسترسی داشته باشد
-val keystoreProperties = java.util.Properties()
+val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(java.io.FileInputStream(keystorePropertiesFile))
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
-// >>>>> پایان کدهای اضافه شده - بخش اول (نسخه کاتلین) <<<<<
+// >>>>> پایان کدهای اضافه شده - بخش دوم (نسخه کاتلین) <<<<<
 
 android {
     namespace = "com.example.flutter_application_1"
@@ -28,7 +34,7 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
-    // >>>>> شروع کدهای اضافه شده - بخش دوم (نسخه کاتلین) <<<<<
+    // >>>>> شروع کدهای اضافه شده - بخش سوم (نسخه کاتلین) <<<<<
     // این بخش، تنظیمات کلید امضای شما را تعریف می‌کند
     signingConfigs {
         create("release") {
@@ -40,7 +46,7 @@ android {
             }
         }
     }
-    // >>>>> پایان کدهای اضافه شده - بخش دوم (نسخه کاتلین) <<<<<
+    // >>>>> پایان کdeos اضافه شده - بخش سوم (نسخه کاتلین) <<<<<
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).

@@ -5,6 +5,15 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// >>>>> شروع کدهای اضافه شده - بخش اول <<<<<
+// این بخش فایل key.properties را می‌خواند تا به رمزها دسترسی داشته باشد
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+// >>>>> پایان کدهای اضافه شده - بخش اول <<<<<
+
 android {
     namespace = "com.example.flutter_application_1"
     compileSdk = flutter.compileSdkVersion
@@ -18,6 +27,20 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+
+    // >>>>> شروع کدهای اضافه شده - بخش دوم <<<<<
+    // این بخش، تنظیمات کلید امضای شما را تعریف می‌کند
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+    // >>>>> پایان کدهای اضافه شده - بخش دوم <<<<<
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -33,8 +56,9 @@ android {
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            // >>>>> این خط تغییر کرده است <<<<<
+            // به جای استفاده از کلید دیباگ، از کلید رسمی که ساختیم استفاده می‌کنیم
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 }
@@ -42,3 +66,6 @@ android {
 flutter {
     source = "../.."
 }
+
+
+

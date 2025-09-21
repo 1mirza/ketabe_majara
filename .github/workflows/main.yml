@@ -1,0 +1,73 @@
+# This is the name of the workflow, which will be displayed in the "Actions" tab of your GitHub repository.
+name: Build Flutter App
+
+# Controls when the workflow will run. 
+# This workflow runs on every push to the "main" branch.
+on:
+  push:
+    branches: [ "main" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
+jobs:
+  build:
+    # The type of runner that the job will run on. We use the latest version of Ubuntu.
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
+      - uses: actions/checkout@v4
+
+      # Step 2: Sets up the Java Development Kit (JDK) which is required for Android builds.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: "17"
+
+      # Step 3: Sets up a Flutter environment for use in actions.
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # Use the stable channel of Flutter
+          cache: true
+
+      # Step 4: Gets all the dependencies for your Flutter project.
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      # Step 5: Decode the keystore file from the GitHub Secret.
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.KEY_JKS_BASE64 }}" | base64 --decode > android/app/my-release-key.jks
+      
+      # Step 6: Create the key.properties file from the GitHub Secret.
+      - name: Create key.properties file
+        run: |
+          echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      # >>>>> مرحله جدید و بسیار مهم برای عیب‌یابی <<<<<
+      # Step 7: Display the content of the created key.properties file for verification.
+      - name: Display content of key.properties for debugging
+        run: cat android/key.properties
+      # >>>>> پایان مرحله جدید <<<<<
+
+      # Step 8: Builds the Android APK file in release mode.
+      - name: Build APK
+        run: flutter build apk --release
+
+      # Step 9: Builds the Android App Bundle file in release mode.
+      - name: Build App Bundle
+        run: flutter build appbundle --release
+      
+      # Step 10: Uploads the generated APK file as an artifact.
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      # Step 11: Uploads the generated App Bundle file as an artifact.
+      - name: Upload App Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-appbundle
+          path: build/app/outputs/bundle/release/app-release.aab
+
